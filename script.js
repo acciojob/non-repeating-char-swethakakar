@@ -1,4 +1,4 @@
-function firstNonRepeatedChar(sr) {
+function firstNonRepeatedChar(str) {
 // your code here
     let m=new Map();
     let n=str.length;
