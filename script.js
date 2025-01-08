@@ -1,24 +1,20 @@
 function firstNonRepeatedChar(str) {
 // your code here
-    let m=new Map();
-    let n=str.length;
-    for(let i=0; i<n; i++)
-    {
-        let k=0;
-        if(m.get(str[i])){
-            k=m.get(str[i]);
-        }
-        m.set(str[i],k+1);
+    let freqMap = {};
+
+    // Loop through the string to populate the frequency map
+    for (let i = 0; i < str.length; i++) {
+        let char = str[i];
+        freqMap[char] = (freqMap[char] || 0) + 1;
     }
-    let ans=null;
-    for(let i=0; i<n; i++)
-    {
-        if(m.get(str[i]==1)){
-            ans=str[i];
-            break;
+
+    // Loop through the string again to find the first non-repeating character
+    for (let i = 0; i < str.length; i++) {
+        if (freqMap[str[i]] === 1) {
+            return str[i]; // Return the first non-repeating character
         }
     }
-    return ans;
+    return null; // Return null if no non-repeating character is found	
 }
 
 const input = prompt("Enter a string");
